@@ -19,7 +19,6 @@ public:
                 }
             }
         }
-        cout<<endl;
         for(int i=0;i<nums.size();i++){
             v[i] = m[v[i]]; // Accessing data from map
         }
