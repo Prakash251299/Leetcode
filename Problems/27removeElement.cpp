@@ -5,9 +5,7 @@ public:
         vector<int> v;
         for(;i<nums.size();i++){
             if(nums[i]!=val){
-                
-            
-v.push_back(nums[i]);
+                v.push_back(nums[i]);
             }
             //cout<<"hi";
         }
