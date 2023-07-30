@@ -45,24 +45,6 @@ public:
                     }
                 }
                 break;
-            }else{
-                if(s[i]==')'){
-                for(i=0;i<s.size();i++){
-                    if(s[i]==')'){
-                        if(count>0){
-                            count--;
-                        }else{
-                            return false;
-                        }
-                    }
-                    else{
-                        if(s[i]=='*'){
-                            count++;
-                        }
-                    }
-                }
-                break;
-                }
             }
         }
         return true;
