@@ -8,6 +8,7 @@ public:
         }
         for(auto x:m){
             int a = x.second;
+            // 1st method
             if(a==1){
                 return -1;
             }
@@ -16,6 +17,7 @@ public:
                 r++;
             }
 
+            // // 2nd method
             // if(a==1){
             //     return -1;
             // }
