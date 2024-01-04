@@ -17,7 +17,7 @@ public:
                 r++;
             }
 
-            // // 2nd method
+            // // 2nd method ( complex )
             // if(a==1){
             //     return -1;
             // }
@@ -31,6 +31,9 @@ public:
             // if(rem==0){
             //     r += a/3;
             // }
+
+            // // 3rd method
+            // r += a/3 + int(a%3>0);
         }
         return r;
     }
