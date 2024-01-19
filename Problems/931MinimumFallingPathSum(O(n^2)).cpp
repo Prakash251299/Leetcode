@@ -41,18 +41,19 @@ public:
         return;        
     }
     int minFallingPathSum(vector<vector<int>>& matrix) {
-        vector<vector<int>>v;
-        vector<int>v1;
+        // vector<vector<int>>v;
+        // vector<int>v1;
         vector<vector<int>>arr = matrix;
 
         int n = arr.size();
-        for(auto x:arr){
-            for(auto y:x){
-                v1.push_back(0);
-            }
-            v.push_back(v1);
-            v1.clear();
-        }
+        vector<vector<int>> v(n,vector<int>(n, 0));
+        // for(auto x:arr){
+        //     for(auto y:x){
+        //         v1.push_back(0);
+        //     }
+        //     v.push_back(v1);
+        //     v1.clear();
+        // }
         for(int i=0;i<n;i++){
             v[n-1][i] = arr[n-1][i];
         }
