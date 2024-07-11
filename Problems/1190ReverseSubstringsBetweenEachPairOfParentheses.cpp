@@ -12,19 +12,13 @@ public:
                 c++;
                 while(res[j]!='('){
                     temp+=res[j];
-                    // res[j]=' ';
                     res.erase(j,1);
                     j--;
                 }
-                // res.erase(j,1);
-                // if(res.size()>1){
-                    res.erase(j,1);
-                // }
-                // res[j]='';
+                res.erase(j,1);
                 res+=temp;
                 c++;
             }
-
         }
         return res;
     }
