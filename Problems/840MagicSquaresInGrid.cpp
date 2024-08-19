@@ -58,11 +58,9 @@ public:
 
     int traverse(vector<vector<int>>v,int a,int b){
         cout<<a<<","<<b<<" ";
-        if(duplicateCheckWithRange(v,a,b)==0){ // it contains duplicate
-            cout<<"yes"<<"\n";
+        if(duplicateCheckWithRange(v,a,b)==0){ // it checks for duplicates
             return 0;
         }
-        cout<<"no"<<"\n";
         int sum = v[a][b]+v[a+1][b]+v[a+2][b];
         int r = colSum(v,b,a,sum);
         
@@ -92,7 +90,7 @@ public:
             if(a+3<=grid.size() && b+3<=grid[0].size()){
                 count+=traverse(grid,a,b);
                 b++;
-                if(b+3>grid[0].size()){ // make >= to ==
+                if(b+3>grid[0].size()){
                     b=0;
                     a++;
                     if(a+3>grid.size()){
