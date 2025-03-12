@@ -12,25 +12,9 @@ public:
             if(s[j]=='c'){
                 c++;
             }
-            if(a>0 && b>0 && c>0){
-                count+=s.size()-j;
-                if(s[i]=='a'){
-                    a--;
-                }
-                if(s[i]=='b'){
-                    b--;
-                }
-                if(s[i]=='c'){
-                    c--;
-                }
-                i++;
-                for(;i<j;i++){
-                    if(a>0 && b>0 && c>0){
-                        count+=s.size()-j;
-                    }
-                    else{
-                        break;
-                    }
+            for(;i<j;i++){
+                if(a>0 && b>0 && c>0){
+                    count+=s.size()-j;
                     if(s[i]=='a'){
                         a--;
                     }
@@ -40,6 +24,8 @@ public:
                     if(s[i]=='c'){
                         c--;
                     }
+                }else{
+                    break;
                 }
             }
             j++;
