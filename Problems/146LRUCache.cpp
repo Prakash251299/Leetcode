@@ -20,7 +20,7 @@ public:
     }
     int lruSz=0,sz=0;
     // Node* dl = NULL;
-    map<int,Node*>m;
+    unordered_map<int,Node*>m;
     Node *start=NULL;
     Node *end=NULL;
     LRUCache(int capacity) {
