@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int fun(vector<int>& coins, int a,int h,unordered_map<int,int>&dp,int flag){
+    // int fun(vector<int>& coins, int a,int h,unordered_map<int,int>&dp,int flag){
+    int fun(vector<int>& coins, int a,int h,vector<int>&dp,int flag){
         if(a==0){
             return 1;
         }
@@ -38,7 +39,8 @@ public:
     }
 
     int coinChange(vector<int>& coins, int amount) {
-        unordered_map<int,int>dp;
+        // unordered_map<int,int>dp;
+        vector<int>dp(10001,0);
         int flag = fun(coins,amount,0,dp,0);
         if(flag==0){
             return -1;
