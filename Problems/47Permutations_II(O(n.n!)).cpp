@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void fun(vector<int>& nums, set<vector<int>>&res,map<int,int>m,vector<int>v,int c){
+    void fun(vector<int>& nums, set<vector<int>>&res,unordered_map<int,int>&m,vector<int>&v,int c){
         if(c==nums.size()){
             //cout<<v.size();
             res.insert(v);
@@ -20,7 +20,7 @@ public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>>res;
         set<vector<int>>s;
-        map<int,int>m;
+        unordered_map<int,int>m;
         vector<int>v;
         fun(nums,s,m,v,0);
         for(auto x:s){
