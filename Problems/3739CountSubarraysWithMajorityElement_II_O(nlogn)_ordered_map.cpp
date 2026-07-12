@@ -17,14 +17,20 @@ public:
             cout<<x.first<<":"<<x.second<<"\n";
         }
     }
-    void rankify(vector<int>& nums,map<long long,long long>&m){
-        for(auto x:nums){
-            m[x]=0;
-        }
+    void rankify(vector<int>&v){
+        unordered_map<long long,long long>m;
+        vector<int>arr=v;
+        sort(arr.begin(),arr.end());
         int i=1;
-        for(auto x:m){
-            m[x.first]=i;
+        for(auto x:arr){
+            // if(m[x]!=0)continue;
+            // if (m.find(x)!=m.end()) continue;
+            if (m.count(x)) continue;
+            m[x]=i;
             i++;
+        }
+        for(int i=0;i<v.size();i++){
+            v[i]=m[v[i]];
         }
     }
 
@@ -39,7 +45,6 @@ public:
 
     void propagate(long long a, vector<long long>&bit){
         long long c=0;
-        // if(a==0){cout<<"ishu\n";return;}
         while(a<bit.size()){
             bit[a]++;
             a+=a&-a;
@@ -60,12 +65,7 @@ public:
         }
         // display(sum);
         long long res=0;
-        map<long long,long long>m;
-        rankify(sum,m);
-        for(int i=0;i<sum.size();i++){
-            sum[i]=m[sum[i]];
-        }
-        // display(sum);
+        rankify(sum);
         vector<long long>bit(sum.size()+1,0);
         for(int i=0;i<sum.size();i++){
             long long x=sum[i];
