@@ -40,7 +40,7 @@ public:
     void propagate(long long a, vector<long long>&bit){
         long long c=0;
         // if(a==0){cout<<"ishu\n";return;}
-        while(a<100001){
+        while(a<bit.size()){
             bit[a]++;
             a+=a&-a;
         }
@@ -66,7 +66,7 @@ public:
             sum[i]=m[sum[i]];
         }
         // display(sum);
-        vector<long long>bit(100001,0);
+        vector<long long>bit(sum.size()+1,0);
         for(int i=0;i<sum.size();i++){
             long long x=sum[i];
             res+=getCount(x-1,bit);
