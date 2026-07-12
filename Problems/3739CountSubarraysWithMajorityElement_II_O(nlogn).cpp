@@ -47,14 +47,11 @@ public:
     }
 
     long long countMajoritySubarrays(vector<int>& nums, int target) {
-        map<long long,long long>m;
-        rankify(nums,m);
-        // display(m);
         vector<int>sum;
         sum.push_back(0);
         long long c=0;
         for(auto x:nums){
-            if(m[x]==m[target]){
+            if(x==target){
                 c++;
             }else{
                 c--;
@@ -63,7 +60,7 @@ public:
         }
         // display(sum);
         long long res=0;
-        m={};
+        map<long long,long long>m;
         rankify(sum,m);
         for(int i=0;i<sum.size();i++){
             sum[i]=m[sum[i]];
