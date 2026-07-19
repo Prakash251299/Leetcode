@@ -1,40 +1,33 @@
 class Solution {
 public:
-    void display(vector<int>v){
+    void display(vector<int>&v){
         for(auto x:v){
             cout<<x<<" ";
         }
         cout<<"\n";
-        return;
     }
-    int binarySearch(vector<int>v,int a,int i,int j){
+    int binarySearch(vector<int>&v,int a,int i,int j){
         if(i>j){
             return i;
         }
-        int m = (i+j)/2;
-        if(v[m]==a){
-            return m;
+        int mid=(i+j)/2;
+        if(v[mid]==a)return mid;
+        if(a<v[mid]){
+            return binarySearch(v,a,i,mid-1);
         }
-        if(v[m]>a){
-            i=binarySearch(v,a,i,m-1);
-        }else{
-            i=binarySearch(v,a,m+1,j);
-        }
-        return i;
+        return binarySearch(v,a,mid+1,j);
+    }
+    int search(int a,vector<int>&v){
+        return binarySearch(v,a,0,v.size()-1);
     }
     int lengthOfLIS(vector<int>& nums) {
         vector<int>v;
-        v.push_back(nums[0]);
-        if(nums.size()==1){
-            return v.size();
-        }
-        for(int i=1;i<nums.size();i++){
-            int t = binarySearch(v,nums[i],0,v.size()-1);
-            if(t>=v.size()){
+        for(int i=0;i<nums.size();i++){
+            int ind = search(nums[i],v);
+            if(ind>=v.size()){
                 v.push_back(nums[i]);
-            }
-            else{
-                v[t] = nums[i];
+            }else{
+                v[ind]=nums[i];
             }
         }
         return v.size();
